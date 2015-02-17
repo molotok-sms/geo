@@ -37,7 +37,8 @@ CREATE TABLE `cities` (
   `name` varchar(256) NOT NULL,
   `create_datetime` int(10) unsigned NOT NULL,
   `update_datetime` int(10) unsigned NOT NULL,
-  PRIMARY KEY (`cid`)
+  PRIMARY KEY (`cid`),
+  KEY `longitude` (`longitude`,`latitude`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
