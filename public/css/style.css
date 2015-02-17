@@ -1,0 +1,537 @@
+
+/*
+	
+	Цветовая схема ( http://colorscheme.ru/#3q11Tw0w0w0w0 ):
+	
+*/
+
+
+/* === Вспомогательные классы ================================================================= */
+
+@media print { .no_print { display: none; } }
+@media screen { .no_screen { display: none; } }
+
+.button
+{
+	background-color: #3AA6D0;
+	border-bottom: 1px solid rgb(174, 174, 174);
+	border-left: 1px solid rgb(204, 203, 203);
+	border-right: 1px solid rgb(204, 203, 203);
+	border-top: 1px solid rgb(217, 216, 216);
+	border-radius: 6px;
+	box-shadow: 0px 1px 0px 0px rgb(255, 255, 255) inset;
+	color: white;
+	font-family: Verdana;
+	font-size: 0.9em;
+	margin: 0px;
+	padding: 7px 15px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.8);
+	-webkit-user-select: none;
+	
+}
+
+div.state-error
+{
+	background-color: red;
+	border-radius: 4px;
+	color: white;
+	margin-top: 10px;
+	padding: 10px;
+	text-align: center;
+	
+}
+
+input.state-error,
+textarea.state-error
+{
+	border: 1px solid #ff6666 !important;
+	box-shadow: 0 0 2px rgba(255, 0, 0, 0.5)  !important;
+	
+}
+
+div.state-success
+{
+	background-color: #37DC74;
+	border-radius: 4px;
+	margin-top: 10px;
+	padding: 10px;
+	text-align: center;
+	
+}
+
+input.ajax
+{
+	background-color: transparent !important;
+	background: url(../images/ajax_loader_blue_32.gif) center no-repeat;
+	
+}
+
+
+/* === Общая разметка ================================================================= */
+
+*
+{
+	box-sizing: border-box;
+	
+}
+
+body
+{
+	background-color: #0776A0;
+	font-size: 12pt;
+	margin: 0px;
+	
+}
+
+a
+{
+	color: #024C68;
+	
+}
+
+a img
+{
+	border: none;
+	
+}
+
+
+.header_frame
+{
+	background-color: #0776A0;
+	margin: 0px;
+	padding: 20px 0px 0px 0px;
+	position: fixed;
+	width: 100%;
+	
+}
+
+
+.header_frame > .header
+{
+	background-color: white;
+	box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+	margin: auto;
+	width: 1000px;
+	
+}
+
+
+.header_frame > .header > .title
+{
+	font-size: 36pt;
+	padding: 20px 30px;
+	
+}
+
+.header_frame > .header > .title > a
+{
+	color: black;
+	text-decoration: none;
+	
+}
+
+
+.header_frame > .header > .menu
+{
+	background-color: rgb(8, 137, 186);
+	border-top: 1px solid rgb(4, 56, 77);
+	font-family: Verdana;
+	font-size: 10pt;
+	margin: 0px;
+	
+}
+
+.header_frame > .header > .menu > ul
+{
+	float: left;
+	margin: 0px;
+	padding: 10px 0px;
+	
+}
+
+.header_frame > .header > .menu > ul > li
+{
+	cursor: pointer;
+	float: left;
+	list-style: none;
+	padding: 5px;
+	
+}
+
+.header_frame > .header > .menu > ul > li > a
+{
+	background-color: rgb(206, 240, 253);
+	border-radius: 2px;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), -23px 0 20px -23px rgba(0, 0, 0, 0.8), 23px 0 20px -23px rgba(0, 0, 0, 0.8), 0 0 40px rgba(7, 118, 160, 0.8) inset;
+	color: black;
+	font-weight: bold;
+	padding: 10px 20px;
+	text-decoration: none;
+	
+}
+
+.header_frame > .header > .menu > ul > li > a:hover
+{
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), -23px 0 20px -23px rgba(0, 0, 0, 0.8), 23px 0 20px -23px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+	
+}
+
+.header_frame > .header > .menu > ul > li.highlight > a
+{
+	background-color: #37DC74;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), -23px 0 20px -23px rgba(0, 0, 0, 0.8), 23px 0 20px -23px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 185, 69, 1) inset;
+	color: white;
+	text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.6);
+	
+}
+
+.header_frame > .header > .menu > ul > li.selected > a
+{
+	background-color: rgb(255, 206, 153);
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), -23px 0 20px -23px rgba(0, 0, 0, 0.8), 23px 0 20px -23px rgba(0, 0, 0, 0.8), 0 0 40px rgba(255, 133, 0, 0.8) inset;
+	color: black;
+	text-shadow: none;
+	
+}
+
+.header_frame > .header > .menu > ul:after,
+.header_frame > .header > .menu:after
+{
+	clear: both;
+	content: ".";
+	display: block;
+	height: 0;
+	visibility: hidden;
+	
+}
+
+.header_frame > .header > .menu > .login
+{
+	background: url(../images/businessman_24.png) left no-repeat;
+	float: right;
+	margin: 5px;
+	padding: 10px 7px 10px 27px;
+	
+}
+
+.header_frame > .header > .menu > .login > a
+{
+	color: white;
+	font-weight: bold;
+	text-decoration: none;
+	
+}
+
+.header_frame > .header > .menu > .login > a:hover
+{
+	text-decoration: underline;
+	
+}
+
+
+.header_spacer
+{
+	height: 190px;
+	
+}
+
+
+.main_frame
+{
+	margin: auto;
+	width: 1000px;
+	
+}
+
+
+.footer
+{
+	margin: 20px auto;
+	text-align: center;
+	width: 1000px;
+	
+}
+
+
+/* === Шаблон страниц ================================================================= */
+
+.main_frame > .simple_page
+{
+	background-color: white;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+	margin-bottom: 20px;
+	padding: 30px;
+	
+}
+
+.main_frame > .simple_page > .header
+{
+	font-size: 1.5em;
+	padding: 10px;
+	text-align: center;
+	
+}
+
+.main_frame > .simple_page > .content
+{
+	margin: 0px auto 100px auto;
+	padding: 25px;
+	
+}
+
+.main_frame > .simple_page > .content > p > input
+{
+	border: 1px solid #606060;
+	border-radius: 2px;
+	padding: 5px;
+	width: 250px;
+	
+}
+
+.main_frame > .simple_page > .content > table
+{
+	border-collapse: collapse;
+	text-align: left;
+	
+}
+
+.main_frame > .simple_page > .content > table td
+{
+	padding: 7px 20px;
+	vertical-align: middle;
+	
+}
+
+.main_frame > .simple_page > .content > .action
+{
+	margin-top: 20px;
+	text-align: center;
+	
+}
+
+.main_frame > .simple_page > .content > .action > input
+{
+	margin-right: 20px;
+	padding: 7px 18px;
+	
+}
+
+
+/* === cities (Города) ================================================================= */
+
+.main_frame > .pager
+{
+	font-size: 1.1em;
+	margin-bottom: 20px;
+	text-align: center;
+	
+}
+
+.main_frame > .pager > .page
+{
+	background-color: white;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+	display: inline;
+	margin-right: 5px;
+	padding: 5px 6px;
+	
+}
+
+.main_frame > .pager > .page > a
+{
+	padding: 0 6px;
+	
+}
+
+.main_frame > .pager > .page.current > a
+{
+	border-bottom: 3px solid #FF8500;
+	font-weight: bold;
+	text-decoration: none;
+	
+}
+
+.main_frame > .pager > .spacer
+{
+	color: white;
+	display: inline;
+	font-family: sans-serif;
+	font-weight: bold;
+	margin-right: 5px;
+	
+}
+
+
+.main_frame > .cities.empty
+{
+	background-color: white;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+	margin-bottom: 20px;
+	padding: 40px;
+	text-align: center;
+	
+}
+
+.main_frame > .cities.empty > .content
+{
+	background-color: #FFBC73;
+	border-radius: 4px;
+	
+}
+
+.main_frame > .cities.error
+{
+	background-color: white;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+	margin-bottom: 20px;
+	padding: 40px;
+	text-align: center;
+	
+}
+
+.main_frame > .cities.error > .content
+{
+	background-color: pink;
+	border-radius: 4px;
+	
+}
+
+
+.main_frame > .cities > .item
+{
+	background-color: white;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+	margin-bottom: 20px;
+	padding: 20px 30px;
+	
+}
+
+.main_frame > .cities > .item > .header h2
+{
+	margin: 0.4em 0em 0.8em 0em;
+	
+}
+
+.main_frame > .cities > .item > .content
+{
+	text-align: justify;
+	white-space: pre-wrap;
+	
+}
+
+.main_frame > .cities > .item > .content p
+{
+	margin: 0;
+	
+}
+
+.main_frame > .cities > .item > .action
+{
+	margin: 20px 0;
+	
+}
+
+.main_frame > .cities > .item > .action > a
+{
+	background-color: #DCECF2;
+	border-bottom: 1px solid rgb(174, 174, 174);
+	border-left: 1px solid rgb(204, 203, 203);
+	border-right: 1px solid rgb(204, 203, 203);
+	border-top: 1px solid rgb(217, 216, 216);
+	border-radius: 6px;
+	box-shadow: 0px 1px 0px 0px rgb(255, 255, 255) inset;
+	color: black;
+	font-family: Verdana;
+	font-size: 0.8em;
+	margin: 0px;
+	padding: 7px 15px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.8);
+	-webkit-user-select: none;
+	
+}
+
+.main_frame > .cities > .item > .info
+{
+	font-family: Verdana;
+	font-size: 0.7em;
+	margin: 0.8em 0em 0.4em 0em;
+	padding: 5px 0;
+	
+}
+
+.main_frame > .cities > .item > .info > .date
+{
+	color: gray;
+	display: inline;
+	padding-right: 10px;
+	
+}
+
+.main_frame > .cities > .item > .info > .customer
+{
+	color: #226078;
+	display: inline;
+	font-weight: bold;
+	padding-right: 20px;
+	
+}
+
+.main_frame > .cities > .item > .info > .price
+{
+	color: red;
+	display: inline;
+	font-family: serif;
+	font-size: 1.5em;
+	font-weight: bold;
+	
+}
+
+
+.main_frame > .cities.search
+{
+	background-color: white;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+	margin-bottom: 20px;
+	padding: 30px;
+	
+}
+
+.main_frame > .cities.search > .header
+{
+	font-size: 1.5em;
+	padding: 10px;
+	text-align: center;
+	
+}
+
+.main_frame > .cities.search > .content
+{
+	margin: 0px auto 0px auto;
+	padding: 15px;
+	vertical-align: middle;
+	
+}
+
+.main_frame > .cities.search > .content > div
+{
+	display: inline;
+	height: 40px;
+	padding: 0 5px;
+	
+}
+
+.main_frame > .cities.search.name > .content
+{
+	margin: 0px 230px;
+	
+}
+
+.main_frame > .cities.search.name > .content > div.field > input
+{
+	width: 300px;
+	
+}
+
